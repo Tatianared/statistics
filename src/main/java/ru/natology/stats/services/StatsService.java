@@ -11,13 +11,12 @@ public class StatsService {
     }
 
     public int averageCheckMonth(int[] sales) {
-        int allSales = 0;
-        for (int i = 0; i < sales.length; i++) {
-            allSales = allSales + sales[i];
-        }
-        return allSales / sales.length;
+        int avgCheck = allAmountSales(sales) / sales.length;
+
+        return avgCheck;
 
     }
+
 
     public int maxSales(int[] sales) {
         int maxMonth = 0;
@@ -44,16 +43,9 @@ public class StatsService {
     }
 
     public int lessAverageCheckMonth(int[] sales) {
-        int allSales = 0;
         int month = 0;
-        int averageCheck;
         for (int i = 0; i < sales.length; i++) {
-            allSales = allSales + sales[i];
-
-        }
-        averageCheck = allSales / sales.length;
-        for (int i = 0; i < sales.length; i++) {
-            if (sales[i] < averageCheck) {
+            if (sales[i] < averageCheckMonth(sales)) {
                 month++;
             }
 
@@ -64,16 +56,9 @@ public class StatsService {
     }
 
     public int moreAverageCheckMonth(int[] sales) {
-        int allSales = 0;
         int month = 0;
-        int averageCheck;
         for (int i = 0; i < sales.length; i++) {
-            allSales = allSales + sales[i];
-
-        }
-        averageCheck = allSales / sales.length;
-        for (int i = 0; i < sales.length; i++) {
-            if (sales[i] > averageCheck) {
+            if (sales[i] > averageCheckMonth(sales)) {
                 month++;
             }
 
